@@ -5,7 +5,7 @@ import {
     DELETE_TASK,
   } from "../constants";
   
-export const getTask = (id) => ({
-  type: Read,
-  payload: id,
+export const Add = (Task) => ({
+  type: CREATE_TASK,
+  payload: Task,
 });

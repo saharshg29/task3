@@ -16,8 +16,13 @@ export default function Card() {
               <Delete />
             </td>
             <td id="title">{item.title}</td>
+            <td id="desc">{item.description}</td>
             <td id="status">
-              <input type="checkbox" checked={item.completed} onClick={(e) => console.log(e.checked)} />
+              <input
+                type="checkbox"
+                checked={item.completed}
+                onClick={(e) => console.log(e.checked)}
+              />
             </td>
           </tr>
         );
