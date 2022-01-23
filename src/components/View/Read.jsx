@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "./Card";
-import './Style/read.css'
+import '../Style/read.css'
 
 export default function Read() {
   return (

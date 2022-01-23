@@ -1,6 +1,9 @@
 import { useSelector } from "react-redux";
 import Delete from "@material-ui/icons/Delete";
-import "./Style/card.css";
+import Edit from "@material-ui/icons/Edit";
+import Update from "../Update";
+import { Link } from "react-router-dom";
+import "../Style/card.css";
 
 import React from "react";
 
@@ -13,7 +16,9 @@ export default function Card() {
           <tr className="card">
             <td id="sno">
               <span>{item.id}</span>
-              <Delete />
+              <Link to={`/${item.id}`}>
+                <Edit />
+              </Link>
             </td>
             <td id="title">{item.title}</td>
             <td id="desc">{item.description}</td>
