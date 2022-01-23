@@ -1,0 +1,59 @@
+.upper {
+  width: 100vw;
+  background-color: blue;
+}
+
+.lower {
+  float: left;
+  background-color: red;
+  display: flex;
+}
+
+.upper .read {
+  width: 100%;
+  height: 50vh;
+  /* background-color: black; */
+  color: white;
+  text-overflow: unset;
+}
+
+.lower .create {
+  right: 1;
+  width: 50vw;
+  height: 50vh;
+  background-color: skyblue;
+}
+
+.lower .update {
+  width: 50vw;
+  height: 50vh;
+}
+
+h2 {
+  text-align: center;
+}
+.card {
+  background-color: black;
+  color: white;
+}
+
+.upper .read .h3 {
+  color: white;
+}
+
+table{
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ddd;
+  padding: 8px;
+}
+
+table #sno {
+    width: 20%;
+}
+
+#status {
+    align-items: center;
+}
