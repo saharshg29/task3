@@ -1,6 +1,7 @@
 .upper {
   width: 100vw;
   background-color: blue;
+  overflow: auto;
 }
 
 .lower {
