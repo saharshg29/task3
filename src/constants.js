@@ -1407,5 +1407,5 @@ export const initialState = {
             "description": "We have some description also"
         }
     ],
-    task: undefined,
+    task: null,
 }

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Edit, Get } from "../action/Actions";
 import uniqid from "uniqid";
-import "./Style/index.css";
+import Delete from "@material-ui/icons/Delete";
+import { DeleteTask } from "../action/Actions";
+import "./Style/update.css";
 
 export default function Update(task) {
   let { id } = useParams();
@@ -12,6 +14,7 @@ export default function Update(task) {
   const [Desc, setDesc] = useState("");
   const dispatch = useDispatch();
   const Store = useSelector((store) => store.todo.task);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (Store != null) {
@@ -19,13 +22,13 @@ export default function Update(task) {
       setDesc(Store.description);
     }
     dispatch(Get(id));
-  }, [Store]);
+  }, [Store, id]);
 
   const onUpdateTask = (e) => {
     e.prevent.default();
 
     const updatedTask = Object.assign(task, {
-      id: uniqid(),
+      id: id,
       title: Title,
       description: Desc,
     });
@@ -35,40 +38,40 @@ export default function Update(task) {
 
   return (
     <>
-      {task ? (
-        <>
-          <div className="update">
-            <form onSubmit={(e) => onUpdateTask(e)}>
-              <h4>TITLE</h4>
-              <input
-                type="text"
-                value={Title}
-                onChange={(e) => setTitle(e.target.value)}
-              />
-              <h4>Description</h4>
-              <input
-                type="text"
-                value={Desc}
-                onChange={(e) => setDesc(e.target.value)}
-              />
-              <br />
-              <button onClick={() => {}}>Submit</button>
-            </form>
-          </div>
-        </>
-      ) : (
-        <>
-          <div className="update">
-            <h2>This is Update view</h2>
-            <p>
-              Click the edit icon for the task which you you want to{" "}
-              <b>update</b> or <b>delete</b>
-            </p>
-            {console.log(task)}
-            {task}
-          </div>
-        </>
-      )}
+      <span
+        onClick={() => {
+          dispatch(DeleteTask(id));
+          navigate("/");
+        }}
+      >
+        <Delete />
+      </span>
+      <h2>Edit Task</h2>
+      <div className="update">
+        <form
+          onSubmit={(e) => {
+            onUpdateTask(e);
+            console.log(e);
+          }}
+        >
+          <h2>{`ID : ${id}`}</h2>
+          <br />
+          <h4>TITLE</h4>
+          <input
+            type="text"
+            value={Title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+          <h4>Description</h4>
+          <input
+            type="text"
+            value={Desc}
+            onChange={(e) => setDesc(e.target.value)}
+          />
+          <br />
+          <button onClick={(e) => {}}>Submit</button>
+        </form>
+      </div>
     </>
   );
 }

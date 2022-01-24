@@ -14,3 +14,8 @@ export const Edit = (Task) => ({
   type: UPDATE_TASK,
   payload: Task,
 });
+
+export const DeleteTask = (id) => ({
+  type: DELETE_TASK,
+  payload: id
+})

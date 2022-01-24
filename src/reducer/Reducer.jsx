@@ -32,6 +32,17 @@ export function Reducer(state = initialState, action) {
         ),
       };
     }
+
+    case DELETE_TASK :
+      console.log("Delete is getting called", action);
+      return {
+        ...state,
+        todo: state.todo.filter(
+          (task) => task.id != action.payload
+        )
+      }
+
+
     default:
       return state;
   }

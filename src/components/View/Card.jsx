@@ -1,7 +1,5 @@
 import { useSelector } from "react-redux";
-import Delete from "@material-ui/icons/Delete";
 import Edit from "@material-ui/icons/Edit";
-import Update from "../Update";
 import { Link } from "react-router-dom";
 import "../Style/card.css";
 
