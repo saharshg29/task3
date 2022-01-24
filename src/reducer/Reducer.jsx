@@ -9,7 +9,6 @@ import {
 export function Reducer(state = initialState, action) {
   switch (action.type) {
     case CREATE_TASK: {
-      console.log("add reducer", action.payload);
       return { ...state, todo: [action.payload, ...state.todo] };
     }
 
@@ -25,6 +24,7 @@ export function Reducer(state = initialState, action) {
       };
 
     case UPDATE_TASK: {
+      console.log('edit reducer',action.payload)
       return {
         ...state,
         todo: state.todo.map((task) =>

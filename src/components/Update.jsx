@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { Edit, Get } from "../action/Actions";
-import uniqid from "uniqid";
 import Delete from "@material-ui/icons/Delete";
 import { DeleteTask } from "../action/Actions";
 import "./Style/update.css";
@@ -24,16 +23,18 @@ export default function Update(task) {
     dispatch(Get(id));
   }, [Store, id]);
 
+  console.log([id, Title, Desc]);
+
   const onUpdateTask = (e) => {
-    e.prevent.default();
+    e.preventDefault();
 
-    const updatedTask = Object.assign(task, {
-      id: id,
-      title: Title,
-      description: Desc,
-    });
+    // const updatedTask = Object.assign(task, {
+    //   // id: id,
+    //   title: Title,
+    //   description: Desc,
+    // });
 
-    dispatch(Edit(updatedTask));
+    
   };
 
   return (
@@ -69,7 +70,21 @@ export default function Update(task) {
             onChange={(e) => setDesc(e.target.value)}
           />
           <br />
-          <button onClick={(e) => {}}>Submit</button>
+          <span
+            itemType="button"
+            onClick={(e) => {
+              let updatedTask = {
+                id: id,
+                title: Title,
+                description: Desc
+              }
+          
+              dispatch(Edit(updatedTask));
+            }}
+          >
+            {" "}
+            Submit
+          </span>
         </form>
       </div>
     </>
