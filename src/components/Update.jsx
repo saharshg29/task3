@@ -23,7 +23,6 @@ export default function Update(task) {
     dispatch(Get(id));
   }, [Store, id]);
 
-  console.log([id, Title, Desc]);
 
   const onUpdateTask = (e) => {
     e.preventDefault();
