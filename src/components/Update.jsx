@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { Edit, Get } from "../action/Actions";
+import { EditTask, Get } from "../action/Actions";
 import Delete from "@material-ui/icons/Delete";
 import { DeleteTask } from "../action/Actions";
 import "./Style/update.css";
 
-export default function Update(task) {
+export default function Update() {
   let { id } = useParams();
   const [Title, setTitle] = useState("");
   const [Desc, setDesc] = useState("");
@@ -78,7 +78,7 @@ export default function Update(task) {
                 description: Desc
               }
           
-              dispatch(Edit(updatedTask));
+              dispatch(EditTask(updatedTask));
             }}
           >
             {" "}

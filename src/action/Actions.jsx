@@ -10,7 +10,7 @@ export const Get = (id) => ({
   payload: id,
 });
 
-export const Edit = (Task) => ({
+export const EditTask = (Task) => ({
   type: UPDATE_TASK,
   payload: Task,
 });
